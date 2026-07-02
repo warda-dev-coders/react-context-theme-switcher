@@ -1,0 +1,76 @@
+/* Light Mode Design Tokens */
+:root {
+  --bg-color: #f4f4f9;
+  --text-color: #1a1a1a;
+  --card-bg: #ffffff;
+  --btn-bg: #0070f3;
+  --btn-text: #ffffff;
+}
+
+/* Dark Mode Design Tokens */
+.dark {
+  --bg-color: #121212;
+  --text-color: #f4f4f9;
+  --card-bg: #1e1e1e;
+  --btn-bg: #ff007f;
+  --btn-text: #ffffff;
+}
+
+/* Base Body Styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Layout Wrapper */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color); /* Explicitly set wrapper background */
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ⚠️ Text Visibility Fixes */
+.card h1 {
+  color: var(--text-color) !important; /* Force text to use our variable */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--text-color) !important;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* Button Styling */
+.theme-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.theme-btn:active {
+  transform: scale(0.98);
+}
