@@ -1,16 +1,59 @@
-# React + Vite
+# ⚛️ React Context API - Dynamic Theme Switcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A production-ready, highly organized Theme Switcher application built to master global state management in React. This project demonstrates clean architecture by separating the state logic, style system, and component layer using React's built-in Context API, CSS custom properties (variables), and persistent state via `localStorage`.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- **Global State Management:** Implemented React Context API to eliminate prop drilling, sharing the theme state seamlessly across components.
+- **State Persistence:** Automatically saves the user's theme preference (`light` or `dark`) inside the browser's `localStorage` so it stays intact after a page refresh.
+- **Clean Design Token System:** Utilizes CSS Custom Properties (`:root` variables) for scalable theme transitions and maintenance.
+- **Optimized UI:** Cleaned default environment styling to ensure 100% text visibility and seamless transitions between dark and light modes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🏗️ Architecture & Development Phases
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Following standard software development practices, the project is structured into 3 clean phases:
+
+### 🧠 Phase 1: The Brain (Context Setup)
+- Created the global connection tower using `createContext`.
+- Developed the `ThemeProvider` wrapper to supply values (`theme` and `toggleTheme`).
+- Handled side effects with `useEffect` to cache user preferences in browser storage.
+
+### 🎨 Phase 2: The Look (Design System)
+- Defined dynamic style tokens (`--bg-color`, `--text-color`, etc.) in `theme.css`.
+- Configured clean overrides for the `.dark` class with a smooth `0.3s` ease animation.
+
+### 🔗 Phase 3: The Action (Component Wiring)
+- Constructed the interactive `ThemeSwitcher.jsx` button component using the standard `useContext` hook.
+- Wired the root container dynamically in `App.jsx` using JavaScript template literals (`app-container ${theme}`).
+
+---
+
+## 📁 Folder Structure
+
+```text
+src/
+├── components/
+│   └── ThemeSwitcher.jsx    # Consumer Button (UI Switch)
+├── context/
+│   └── themecontext.jsx     # Central State Management Tower
+├── styles/
+│   └── theme.css            # Global Theme Design Tokens
+├── App.jsx                  # Root Layout Wrapper & Connector
+└── main.jsx                 # Application Entry Point
+🛠️ Tech Stack & Concepts Used
+Frontend Library: React (Vite)
+
+Hooks Used: useState, useEffect, useContext
+
+Styling: CSS3 Custom Properties (Variables)
+
+Storage: Web Storage API (localStorage)
+
+👩‍💻 Author
+Warda
+
+Frontend Developer
